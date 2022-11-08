@@ -1,4 +1,4 @@
-package io.github.alancs7.carros.domain.entity;
+package io.github.alancs7.carros.api.users;
 
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;

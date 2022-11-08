@@ -1,8 +1,5 @@
-package io.github.alancs7.carros.controller;
+package io.github.alancs7.carros.api.carros;
 
-import io.github.alancs7.carros.domain.dto.CarroDTO;
-import io.github.alancs7.carros.domain.entity.Carro;
-import io.github.alancs7.carros.service.CarroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;

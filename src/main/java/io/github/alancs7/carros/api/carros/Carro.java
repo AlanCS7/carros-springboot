@@ -1,7 +1,6 @@
-package io.github.alancs7.carros.domain.entity;
+package io.github.alancs7.carros.api.carros;
 
 import lombok.Data;
-import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,15 +9,16 @@ import javax.persistence.Id;
 
 @Entity
 @Data
-public class Role implements GrantedAuthority {
+public class Carro {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
-
-    @Override
-    public String getAuthority() {
-        return nome;
-    }
+    private String tipo;
+    private String descricao;
+    private String urlFoto;
+    private String urlVideo;
+    private String latitude;
+    private String longitude;
 }

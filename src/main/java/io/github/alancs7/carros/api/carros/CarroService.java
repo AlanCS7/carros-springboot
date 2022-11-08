@@ -1,9 +1,6 @@
-package io.github.alancs7.carros.service;
+package io.github.alancs7.carros.api.carros;
 
-import io.github.alancs7.carros.domain.dto.CarroDTO;
-import io.github.alancs7.carros.domain.entity.Carro;
-import io.github.alancs7.carros.domain.repository.CarroRepository;
-import io.github.alancs7.carros.service.exception.ObjectNotFoundException;
+import io.github.alancs7.carros.api.infra.exception.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;

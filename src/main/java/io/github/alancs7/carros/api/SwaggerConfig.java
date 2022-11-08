@@ -1,4 +1,4 @@
-package io.github.alancs7.carros.config;
+package io.github.alancs7.carros.api;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

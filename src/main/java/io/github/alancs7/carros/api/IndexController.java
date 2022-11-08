@@ -1,4 +1,4 @@
-package io.github.alancs7.carros.controller;
+package io.github.alancs7.carros.api;
 
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;

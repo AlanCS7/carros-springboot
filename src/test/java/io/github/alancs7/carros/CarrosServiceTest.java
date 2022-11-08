@@ -1,9 +1,9 @@
 package io.github.alancs7.carros;
 
-import io.github.alancs7.carros.domain.dto.CarroDTO;
-import io.github.alancs7.carros.domain.entity.Carro;
-import io.github.alancs7.carros.service.CarroService;
-import io.github.alancs7.carros.service.exception.ObjectNotFoundException;
+import io.github.alancs7.carros.api.carros.CarroDTO;
+import io.github.alancs7.carros.api.carros.Carro;
+import io.github.alancs7.carros.api.carros.CarroService;
+import io.github.alancs7.carros.api.infra.exception.ObjectNotFoundException;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

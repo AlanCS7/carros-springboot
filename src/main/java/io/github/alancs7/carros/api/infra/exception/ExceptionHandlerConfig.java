@@ -1,7 +1,5 @@
-package io.github.alancs7.carros.controller.exception;
+package io.github.alancs7.carros.api.infra.exception;
 
-import io.github.alancs7.carros.service.exception.ObjectNotFoundException;
-import lombok.Getter;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,7 +8,6 @@ import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import java.io.Serializable;
 import java.time.Instant;
 
 @RestControllerAdvice
@@ -52,21 +49,5 @@ public class ExceptionHandlerConfig {
         String error = "Access Denied Exception";
         StandardError err = new StandardError(Instant.now(), status.value(), error, ex.getMessage());
         return ResponseEntity.status(status).body(err);
-    }
-}
-
-@Getter
-class StandardError implements Serializable {
-
-    private Instant timestamp;
-    private Integer status;
-    private String error;
-    private String message;
-
-    public StandardError(Instant timestamp, Integer status, String error, String message) {
-        this.timestamp = timestamp;
-        this.status = status;
-        this.error = error;
-        this.message = message;
     }
 }

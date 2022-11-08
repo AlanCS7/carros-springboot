@@ -1,6 +1,5 @@
-package io.github.alancs7.carros.domain.dto;
+package io.github.alancs7.carros.api.carros;
 
-import io.github.alancs7.carros.domain.entity.Carro;
 import lombok.Data;
 import org.modelmapper.ModelMapper;
 

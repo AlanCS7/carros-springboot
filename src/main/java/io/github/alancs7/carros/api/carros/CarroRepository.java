@@ -1,6 +1,6 @@
-package io.github.alancs7.carros.domain.repository;
+package io.github.alancs7.carros.api.carros;
 
-import io.github.alancs7.carros.domain.entity.Carro;
+import io.github.alancs7.carros.api.carros.Carro;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
