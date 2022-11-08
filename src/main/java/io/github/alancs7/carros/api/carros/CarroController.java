@@ -1,6 +1,7 @@
 package io.github.alancs7.carros.api.carros;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
@@ -17,8 +18,9 @@ public class CarroController {
     private CarroService service;
 
     @GetMapping
-    public ResponseEntity getCarros() {
-        return ResponseEntity.ok(service.getCarros());
+    public ResponseEntity getCarros(@RequestParam(value = "page", defaultValue = "0") Integer page,
+                                    @RequestParam(value = "size", defaultValue = "10") Integer size) {
+        return ResponseEntity.ok(service.getCarros(PageRequest.of(page, size)));
     }
 
     @GetMapping("/{id}")
@@ -36,8 +38,10 @@ public class CarroController {
     }
 
     @GetMapping("/tipo/{tipo}")
-    public ResponseEntity getAllByTipo(@PathVariable String tipo) {
-        List<CarroDTO> carros = service.getAllByTipo(tipo);
+    public ResponseEntity getAllByTipo(@PathVariable String tipo,
+                                       @RequestParam(value = "page", defaultValue = "0") Integer page,
+                                       @RequestParam(value = "size", defaultValue = "10") Integer size) {
+        List<CarroDTO> carros = service.getAllByTipo(tipo, PageRequest.of(page, size));
 
         return carros.isEmpty() ?
                 ResponseEntity.noContent().build() :

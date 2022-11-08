@@ -2,6 +2,7 @@ package io.github.alancs7.carros.api.carros;
 
 import io.github.alancs7.carros.api.infra.exception.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
@@ -13,16 +14,16 @@ public class CarroService {
     @Autowired
     private CarroRepository repository;
 
-    public List<CarroDTO> getCarros() {
-        return repository.findAll().stream().map(CarroDTO::create).toList();
+    public List<CarroDTO> getCarros(Pageable pageable) {
+        return repository.findAll(pageable).stream().map(CarroDTO::create).toList();
     }
 
     public CarroDTO getCarroById(Long id) {
         return repository.findById(id).map(CarroDTO::create).orElseThrow(() -> new ObjectNotFoundException("Car not found"));
     }
 
-    public List<CarroDTO> getAllByTipo(String tipo) {
-        return repository.findByTipo(tipo).stream().map(CarroDTO::create).toList();
+    public List<CarroDTO> getAllByTipo(String tipo, Pageable pageable) {
+        return repository.findByTipo(tipo, pageable).stream().map(CarroDTO::create).toList();
     }
 
     public CarroDTO insert(Carro carro) {

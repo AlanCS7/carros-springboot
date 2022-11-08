@@ -1,9 +1,9 @@
 package io.github.alancs7.carros.api.infra.security;
 
 import io.github.alancs7.carros.api.infra.security.jwt.JwtAuthenticationFilter;
+import io.github.alancs7.carros.api.infra.security.jwt.JwtAuthorizationFilter;
 import io.github.alancs7.carros.api.infra.security.jwt.handler.AccessDeniedHandler;
 import io.github.alancs7.carros.api.infra.security.jwt.handler.UnauthorizedHandler;
-import io.github.alancs7.carros.api.infra.security.jwt.JwtAuthorizationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Configuration;
@@ -26,7 +26,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     @Qualifier("userDetailsService")
     private UserDetailsService userDetailsService;
-
 
     @Autowired
     private UnauthorizedHandler unauthorizedHandler;

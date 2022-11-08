@@ -1,12 +1,13 @@
 package io.github.alancs7.carros;
 
-import io.github.alancs7.carros.api.carros.CarroDTO;
 import io.github.alancs7.carros.api.carros.Carro;
+import io.github.alancs7.carros.api.carros.CarroDTO;
 import io.github.alancs7.carros.api.carros.CarroService;
 import io.github.alancs7.carros.api.infra.exception.ObjectNotFoundException;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.PageRequest;
 
 import java.util.List;
 
@@ -57,7 +58,7 @@ class CarrosServiceTest {
 
     @Test
     public void deveriaRetornarUmaListaDeCarro() {
-        List<CarroDTO> carros = service.getCarros();
+        List<CarroDTO> carros = service.getCarros(PageRequest.of(0, 30));
 
         assertEquals(30, carros.size());
     }
@@ -74,9 +75,9 @@ class CarrosServiceTest {
     @Test
     public void deveriaRetornarUmaListaDeCarrosPorTipo() {
 
-        assertEquals(10, service.getAllByTipo("classicos").size());
-        assertEquals(10, service.getAllByTipo("esportivos").size());
-        assertEquals(10, service.getAllByTipo("luxo").size());
-        assertEquals(0, service.getAllByTipo("x").size());
+        assertEquals(10, service.getAllByTipo("classicos", PageRequest.of(0, 10)).size());
+        assertEquals(10, service.getAllByTipo("esportivos", PageRequest.of(0, 10)).size());
+        assertEquals(10, service.getAllByTipo("luxo", PageRequest.of(0, 10)).size());
+        assertEquals(0, service.getAllByTipo("x", PageRequest.of(0, 10)).size());
     }
 }
